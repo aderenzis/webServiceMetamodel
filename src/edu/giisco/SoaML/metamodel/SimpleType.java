@@ -1,5 +1,8 @@
 package edu.giisco.SoaML.metamodel;
 
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class SimpleType extends Type {
 
 	public static final int STRING=0;
@@ -85,9 +88,8 @@ public class SimpleType extends Type {
 		
 		this.name=name;
 	}
-
-	public SimpleType(String name) {
-		
+	@JsonCreator
+	public SimpleType(@JsonProperty("name") String name) {
 		name= name.trim();
 		if(name.equalsIgnoreCase("normalizedstring"))
 			tipo=SimpleType.NORMALIZEDSTRING;
