@@ -1,4 +1,6 @@
 package edu.giisco.SoaML.metamodel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 
@@ -22,6 +24,7 @@ public class Operation {
 		this.faults = faults;
 	}
 
+	@JsonIgnore
 	public String getWholeSignature(){
 		String retorno= "Nombre operacion: "+this.name+"-"+ "\n";
 		if(input!=null)
@@ -40,7 +43,7 @@ public class Operation {
 		return retorno;
 	}
 
-	
+	@JsonIgnore
 	public Integer getId() {
 		return id;
 	}

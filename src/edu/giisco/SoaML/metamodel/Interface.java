@@ -1,5 +1,7 @@
 package edu.giisco.SoaML.metamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 public class Interface {
@@ -27,6 +29,8 @@ public class Interface {
 	public void setOperations(ArrayList<Operation> operations) {
 		this.operations = operations;
 	}
+
+	@JsonIgnore
 	public Integer getId() {
 		return id;
 	}

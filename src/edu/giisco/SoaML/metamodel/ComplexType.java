@@ -1,6 +1,8 @@
 package edu.giisco.SoaML.metamodel;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 public class ComplexType extends Type {
@@ -15,7 +17,8 @@ public ArrayList<Attribute> attributes;
 		super(name);
 		this.attributes = attributes;
 	}
-	
+
+	@JsonIgnore
 	public ArrayList<Attribute> getElements() {
 		return attributes;
 	}
@@ -42,7 +45,8 @@ public ArrayList<Attribute> attributes;
 		
 		return ret;
 	}
-	
+
+	@JsonIgnore
 	public Integer getAttributesNumber()
 	{
 		return attributes.size(); 
@@ -53,6 +57,7 @@ public ArrayList<Attribute> attributes;
 	}
 	
 	@Override
+	@JsonIgnore
 	public boolean isComplexType()	{
 		return true;
 	}

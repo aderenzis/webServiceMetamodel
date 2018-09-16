@@ -1,5 +1,7 @@
 package edu.giisco.SoaML.metamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Attribute {
 	
 	public Integer id;
@@ -29,6 +31,8 @@ public class Attribute {
 	public void setType(Type type) {
 		this.type = type;
 	}
+
+	@JsonIgnore
 	public Integer getId() {
 		return id;
 	}

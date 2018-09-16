@@ -1,5 +1,7 @@
 package edu.giisco.SoaML.metamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.util.ArrayList;
 
 public class ArrayType extends Type {
@@ -21,16 +23,19 @@ public class ArrayType extends Type {
 		this.contentType = contentType;
 	}
 
+	@JsonIgnore
 	public boolean isArray()
 	{
 		return true;
 	}
 	//se permite un solo tipo de dato en el arreglo
+	@JsonIgnore
 	public Integer getAttributesNumber()
 	{
 		return contentType.getAttributesNumber(); 
 	}
 	@Override
+	@JsonIgnore
 	public ArrayList<Attribute> getElements()	{
 		return contentType.getElements();
 	}

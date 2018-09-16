@@ -1,6 +1,7 @@
 package edu.giisco.SoaML.metamodel;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class SimpleType extends Type {
@@ -133,7 +134,7 @@ public class SimpleType extends Type {
 		this.name=name;
 	}
 
-
+	@JsonIgnore
 	public int getTipo() {
 		return tipo;
 	}
@@ -197,6 +198,7 @@ public class SimpleType extends Type {
 	}
 	
 	@Override
+	@JsonIgnore
 	public boolean isSimpleType()
 	{
 		return true;
