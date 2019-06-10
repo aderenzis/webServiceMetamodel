@@ -1,7 +1,19 @@
 package edu.giisco.SoaML.metamodel;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonSubTypes;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+
 import java.util.ArrayList;
 
+@JsonIgnoreProperties(ignoreUnknown = true)
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY)
+@JsonSubTypes({
+        @JsonSubTypes.Type(value = ArrayType.class, name = "ArrayType"),
+        @JsonSubTypes.Type(value = SimpleType.class, name = "SimpleType"),
+        @JsonSubTypes.Type(value = ComplexType.class, name = "ComplexType")
+})
 public abstract class Type {
 	
 	public Integer id;
@@ -23,6 +35,8 @@ public abstract class Type {
 	public void setName(String name) {
 		this.name = name;
 	}
+
+	@JsonIgnore
 	public Integer getId() {
 		return id;
 	}
@@ -58,22 +72,28 @@ public abstract class Type {
 			return false;
 		return true;
 	}
-	
+
+	@JsonIgnore
 	public boolean isArray ()	{
 		return false;
 	}
-	
+
+	@JsonIgnore
 	public Integer getAttributesNumber()	{
 		return 1; 
 	}
+
+	@JsonIgnore
 	public ArrayList<Attribute> getElements()	{
 		return null;
 	}
-	
+
+	@JsonIgnore
 	public boolean isSimpleType()	{
 		return false;
 	}
-	
+
+	@JsonIgnore
 	public boolean isComplexType()	{
 		return false;
 	}
